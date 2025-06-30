@@ -55,8 +55,9 @@
 
 .search-container {
     display: flex;
-    max-width: 400px;
-    margin: 20px auto;
+    justify-content: center;
+    max-width: 640px;
+    margin: 24px auto;
     /* center horizontally with some margin */
     border-radius: 6px;
     overflow: hidden;
@@ -152,8 +153,10 @@
 
 .Res-Container {
     display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;   /* ⬅️ cards start centred, not hard-left */
+  gap: 1rem;
+  padding: 0 12px; 
 }
 
 
@@ -173,4 +176,58 @@
 
 .top-rated-btn:hover {
     background-color: #e67300;
+}
+
+.filter-actions {
+ display: flex;
+  justify-content: center;   /* ⬅️ centre the row */
+  align-items: center;
+  gap: 0.75rem;              /* consistent breathing room */
+  margin: 16px auto;
+  max-width: 200px;
+}
+
+/* ──────────────────────── reset button */
+.reset-btn {
+  padding: 0.5rem 1rem;
+  font: inherit;                   /* adopt parent font */
+  border: 1px solid #d0d0d0;       /* light grey outline */
+  border-radius: 4px;
+  background-color: #fff;          /* flat white */
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.reset-btn:hover {
+  background-color: #f5f5f5;       /* soft hover */
+}
+
+
+/* container mimics your card grid */
+.shimmer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* single placeholder card */
+.shimmer-box {
+  width: 280px;           /* same width as a real card */
+  height: 245px;          /* tweak to match your image+info block */
+  border-radius: 10px;
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 25%,
+    #e0e0e0 50%,
+    #f0f0f0 75%
+  );
+  background-size: 400% 100%;
+  animation: shimmer 1.2s infinite;
+}
+
+/* animation */
+@keyframes shimmer {
+  0%   { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
 }
