@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import {Link} from "react-router";
+
 
 const SwiggyHeader = () => {
     const [loginStatus, setloginStatus] = useState('login');
+    
     return (
         <header className="swiggy-header">
             <div className="logo">
@@ -12,10 +15,14 @@ const SwiggyHeader = () => {
             </div>
 
             <nav className="nav-links">
-                <a href="/">Home</a>
-                <a href="/restaurants">Restaurants</a>
-                <a href="/offers">Offers</a>
-                <a href="/help">Help</a>
+                <ol className="list-Items">
+                 <li> <Link to="/">Home</Link></li>
+                 <li> <Link to="/AboutUs">About Us</Link></li>
+                  <li> <Link to="/contact">Contact Me</Link> </li>
+                </ol>
+               
+            
+               
             </nav>
 
             <div className="header-actions">

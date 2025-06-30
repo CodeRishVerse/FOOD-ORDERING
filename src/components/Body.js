@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import SwiggyHeader from "./Header"
 import ResCard from "./ResCard";
 import Shimmer from "./Shimmer";
 
@@ -25,7 +24,6 @@ const Body = () => {
     return  (
      <>
             
-<SwiggyHeader></SwiggyHeader>
             <div className="search-container">
                 <input
                     type="text"
