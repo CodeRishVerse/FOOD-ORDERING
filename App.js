@@ -5,7 +5,8 @@ import ErrorP from './src/components/ErrorP'
 import AboutUs from './src/components/AboutUs';
 import SwiggyHeader from './src/components/Header';
 import Contact from './src/components/ContactUs';
-import { createBrowserRouter,RouterProvider,Outlet } from 'react-router';
+import RestrauntsMenu from './src/components/RestrauntsMenu';
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router';
 
 
 const Wrapper = () => {
@@ -21,30 +22,34 @@ const Wrapper = () => {
 
 const RouteConfig = createBrowserRouter([
     {
-        path:'/',
+        path: '/',
         element: <Wrapper></Wrapper>,
-        children : [
-     {
+        children: [
+            {
 
-        path:'/',
-        element: <Body></Body>
-    },
-     {
+                path: '/',
+                element: <Body></Body>
+            },
+            {
 
-        path:'AboutUs',
-        element: <AboutUs></AboutUs>
-    },
-    {
-        path:'contact',
-        element:<Contact></Contact>
-    }
+                path: 'AboutUs',
+                element: <AboutUs></AboutUs>
+            },
+            {
+                path: 'contact',
+                element: <Contact></Contact>
+            },
+            {
+                path: 'restraunts',
+                element: <RestrauntsMenu></RestrauntsMenu>
+            }
 
         ],
-        errorElement:<ErrorP></ErrorP>
-    }, 
-    
+        errorElement: <ErrorP></ErrorP>
+    },
+
 ]);
 
 
 const checkRoot = createRoot(document.getElementById('wrapper'));
-checkRoot.render(<RouterProvider router={RouteConfig}/>);
+checkRoot.render(<RouterProvider router={RouteConfig} />);
