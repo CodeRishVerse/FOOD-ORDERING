@@ -40,7 +40,7 @@ const RouteConfig = createBrowserRouter([
                 element: <Contact></Contact>
             },
             {
-                path: 'restraunts',
+                path: 'restraunts/:resId',
                 element: <RestrauntsMenu></RestrauntsMenu>
             }
 
