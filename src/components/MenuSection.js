@@ -1,5 +1,6 @@
 import { img_Menu } from "../constants/images_url";
-const MenuSection = ({ resItems }) => {
+const MenuSection = ( {resItems} ) => {
+  console.log("This is resItems"+resItems);
   const { name, price, rating, ratingCountV2, description, imageId, finalPrice } = resItems?.card?.info;
   return (
     <div className="menu-section">

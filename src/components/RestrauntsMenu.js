@@ -1,24 +1,34 @@
-
+import useRestaurantMenu from "../utiles/useRestaurantMenu";
 import { useParams } from "react-router";
 import MenuSection from "./MenuSection";
-import useRestrautMenu from "../utiles/useRestrauntMenu";
+import Shimmer from "./Shimmer";
+
+
 
 const RestrauntsMenu = () => {
 
 
+    
+
+ const { resId } = useParams();
+  const { restrauntMenuHeader, restrauntMainMenu } = useRestaurantMenu(resId);
+ console.log(resId);
 
 
-    const { resId } = useParams();
+   
 
 
-    const { restrauntMenuHeader, restrauntMainMenu } = useRestrautMenu(resId);
-    console.log(restrauntMainMenu);
+    // const { restrauntMenuHeader, restrauntMainMenu } = useRestrautMenu(resId);
+    // console.log(restrauntMainMenu);
 
 
 
     const { name, avgRating, totalRatingsString, costForTwoMessage, cuisines, areaName, minDeliveryTime,
         maxDeliveryTime } = restrauntMenuHeader;
 
+       if (restrauntMainMenu.length === 0) {
+    return <Shimmer />;
+  }
 
     return (
 
@@ -84,11 +94,14 @@ const RestrauntsMenu = () => {
 
 
             </div>
-            {restrauntMainMenu.map((res, key) => {
-                return (<MenuSection resItems={res} key={res?.card?.info?.id}></MenuSection>);
+            
+        
+       
 
-            })}
-
+        {restrauntMainMenu.map((res,key)=>
+        {
+           return  <MenuSection resItems={res} key={res?.card?.info?.id}></MenuSection>;
+        })}
 
 
 

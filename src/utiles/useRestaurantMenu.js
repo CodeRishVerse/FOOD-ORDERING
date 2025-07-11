@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
-
-
-const useRestrautMenu = (resId) => {
+import RestrauntsMenu from "../components/RestrauntsMenu";
+const useRestaurantMenu = (resId) =>
+{
     const [restrauntMenuHeader, setrestrauntMenuHeader] = useState([]);
     const [restrauntMainMenu, setrestrauntMainMenu] = useState([]);
 
-
-
-    useEffect(() => {
+    
+        useEffect(() => {
         fetchData();
     }, []);
 
@@ -15,15 +14,13 @@ const useRestrautMenu = (resId) => {
         const reponse = await fetch(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.6554182&lng=77.16462&restaurantId=${resId}`);
         const data = await reponse.json();
         const resHeadData = data?.data?.cards[2]?.card?.card?.info;
-        const MainData = data?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards;
+        const MainData = data?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards;
+        console.log(MainData);
         setrestrauntMainMenu(MainData);
         setrestrauntMenuHeader(resHeadData);
-
-
     }
-    return { restrauntMainMenu, restrauntMenuHeader };
+    
+   return {restrauntMenuHeader,restrauntMainMenu}; 
 }
 
-
-
-export default useRestrautMenu;
+export default useRestaurantMenu;

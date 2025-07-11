@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import useHomeDisplay from "../utiles/useHomeDisplay";
+import useStatusOnline from "../utiles/useStatusOnline";
 import ResCard from "./ResCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
@@ -6,23 +7,16 @@ import { Link } from "react-router";
 
 const Body = () => {
 
-  const [listOfRestraunts, setlistofRestraunts] = useState([]);
-  const [listOfRestrauntsC, setList] = useState([]);
-  const [searchText, setSearchText] = useState("");
-  console.log(listOfRestrauntsC);
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  async function fetchData() {
-    const response = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6554182&lng=77.16462&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-    const data = await response.json();
-    const restaurants = data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-    setlistofRestraunts(restaurants);
-    setList(restaurants);
-
+  const {listOfRestraunts,listOfRestrauntsC,searchText} = useHomeDisplay();
+  const onlineState = useStatusOnline();
+  if(onlineState===false)
+  {
+    return <div>
+      <h1>Opps you're offline now</h1>
+    </div>
   }
-
+  else
+  {
   return (
     <>
 
@@ -64,7 +58,7 @@ const Body = () => {
       </div>
 
 
-      {listOfRestraunts.length === 0 ? <Shimmer></Shimmer> : <div className="Res-Container">
+      {listOfRestraunts === null? <Shimmer></Shimmer> : <div className="Res-Container">
         {listOfRestraunts.map((res, key) => {
           return <Link key={res.info.id} to={"restraunts/" + res?.info?.id}><ResCard resList={res}></ResCard></Link>
 
@@ -76,6 +70,7 @@ const Body = () => {
     </>
 
   );
+}
 
 }
 

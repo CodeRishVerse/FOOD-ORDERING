@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router";
-import { useStatusOnline } from "../utiles/useStatusOnline";
+import useStatusOnline  from "../utiles/useStatusOnline";
 
 
 const SwiggyHeader = () => {
@@ -22,12 +22,15 @@ const SwiggyHeader = () => {
                     <li> <Link to="/contact">Contact Me</Link> </li>
                     <li>
                         <div
-                            className="status-circle"
+                            className="status-circle" 
                             style={{
-                                backgroundColor: onlineState ? "green" : "red"
-                            }}
-                        ></div>
+      backgroundColor: onlineState ? "green" : "red"
+    }}>
+                        
+                            
+                        </div>
                     </li>
+                    <li><Link to="/Grocery">Grocery</Link></li>
                 </ol>
 
 

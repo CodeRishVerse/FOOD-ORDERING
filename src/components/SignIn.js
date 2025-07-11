@@ -1,5 +1,5 @@
 
-import { Formik, Form, Field, ErrorMessage } from "formik";
+;
 const LoginIn = () => {
     return (
         <div className="login-container">
@@ -15,16 +15,6 @@ const LoginIn = () => {
                         alt="wrap"
                     />
                 </div>
-                <Formik>
-                    {(isSubmitting) => {
-                        <Form>
-                            <Field
-                                type="text" name="Number Field" placeholder="Enter Your Mobile Number"
-                            />
-                            <ErrorMessage name="Number Field" />
-                        </Form>
-                    }}
-                </Formik>
                 <input
                     type="tel"
                     className="phone-input"

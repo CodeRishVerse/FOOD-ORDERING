@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
 import Body from './src/components/Body';
 import ErrorP from './src/components/ErrorP'
@@ -8,6 +8,10 @@ import ContactUs from './src/components/ContactUs';
 import RestrauntsMenu from './src/components/RestrauntsMenu';
 import SignIn from './src/components/SignIn';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router';
+import Shimmer from './src/components/Shimmer';
+
+
+const Grocery = lazy(()=>import('./src/components/Grocery'));
 
 
 const Wrapper = () => {
@@ -47,6 +51,10 @@ const RouteConfig = createBrowserRouter([
             {
                 path: 'signin',
                 element: <SignIn></SignIn>
+            },
+            {
+                path: 'Grocery',
+                element: <Suspense fallback={<Shimmer></Shimmer>}><Grocery></Grocery></Suspense>
             }
 
         ],

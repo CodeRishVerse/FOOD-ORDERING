@@ -1048,6 +1048,7 @@ h1 {
   border: 2px solid black;
   /* border only, no fill */
   display: inline-block;
+  background-color: black;
 }
 
 .online {
