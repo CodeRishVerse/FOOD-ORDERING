@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-import {Link} from "react-router";
+import { Link } from "react-router";
+import { useStatusOnline } from "../utiles/useStatusOnline";
 
 
 const SwiggyHeader = () => {
-    const [loginStatus, setloginStatus] = useState('login');
-    
+
+    const onlineState = useStatusOnline();
     return (
         <header className="swiggy-header">
             <div className="logo">
@@ -16,17 +17,25 @@ const SwiggyHeader = () => {
 
             <nav className="nav-links">
                 <ol className="list-Items">
-                 <li> <Link to="/">Home</Link></li>
-                 <li> <Link to="/AboutUs">About Us</Link></li>
-                  <li> <Link to="/contact">Contact Me</Link> </li>
+                    <li> <Link to="/">Home</Link></li>
+                    <li> <Link to="/AboutUs">About Us</Link></li>
+                    <li> <Link to="/contact">Contact Me</Link> </li>
+                    <li>
+                        <div
+                            className="status-circle"
+                            style={{
+                                backgroundColor: onlineState ? "green" : "red"
+                            }}
+                        ></div>
+                    </li>
                 </ol>
-               
-            
-               
+
+
+
             </nav>
 
             <div className="header-actions">
-                <button className="login-btn" onClick={() => loginStatus === 'login' ? setloginStatus('logout') : setloginStatus('login')}>{loginStatus}</button>
+                <Link to="/signin"> <button className="login-btn">Login</button></Link>
                 <button className="signup-btn">Sign Up</button>
             </div>
         </header>

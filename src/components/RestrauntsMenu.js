@@ -1,32 +1,23 @@
-import { useState, useEffect } from "react";
+
 import { useParams } from "react-router";
 import MenuSection from "./MenuSection";
-import { loadRestaurantMenu } from "../constants/apis";
+import useRestrautMenu from "../utiles/useRestrauntMenu";
 
 const RestrauntsMenu = () => {
 
-    const [restrauntMenuHeader, setrestrauntMenuHeader] = useState([]);
-    const [restrauntMainMenu, setrestrauntMainMenu] = useState([]);
-    console.log(restrauntMainMenu);
+
+
 
     const { resId } = useParams();
 
-    useEffect(() => {
-        fetchData();
-    }, []);
 
-    const fetchData = async () => {
-        const reponse = await fetch(`${loadRestaurantMenu}${resId}`);
-        const data = await reponse.json();
-        const resHeadData = data?.data?.cards[2]?.card?.card?.info;
-        const MainData = data?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards;
-        setrestrauntMainMenu(MainData);
-        setrestrauntMenuHeader(resHeadData);
-    }
+    const { restrauntMenuHeader, restrauntMainMenu } = useRestrautMenu(resId);
+    console.log(restrauntMainMenu);
+
+
 
     const { name, avgRating, totalRatingsString, costForTwoMessage, cuisines, areaName, minDeliveryTime,
         maxDeliveryTime } = restrauntMenuHeader;
-
 
 
     return (

@@ -4,8 +4,9 @@ import Body from './src/components/Body';
 import ErrorP from './src/components/ErrorP'
 import AboutUs from './src/components/AboutUs';
 import SwiggyHeader from './src/components/Header';
-import Contact from './src/components/ContactUs';
+import ContactUs from './src/components/ContactUs';
 import RestrauntsMenu from './src/components/RestrauntsMenu';
+import SignIn from './src/components/SignIn';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router';
 
 
@@ -37,11 +38,15 @@ const RouteConfig = createBrowserRouter([
             },
             {
                 path: 'contact',
-                element: <Contact></Contact>
+                element: <ContactUs></ContactUs>
             },
             {
                 path: 'restraunts/:resId',
                 element: <RestrauntsMenu></RestrauntsMenu>
+            },
+            {
+                path: 'signin',
+                element: <SignIn></SignIn>
             }
 
         ],

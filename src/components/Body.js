@@ -65,8 +65,8 @@ const Body = () => {
 
 
       {listOfRestraunts.length === 0 ? <Shimmer></Shimmer> : <div className="Res-Container">
-        {listOfRestraunts.map((res,key) => {
-          return <Link   key={res.info.id}  to={"restraunts/"+res?.info?.id}><ResCard resList={res}></ResCard></Link>
+        {listOfRestraunts.map((res, key) => {
+          return <Link key={res.info.id} to={"restraunts/" + res?.info?.id}><ResCard resList={res}></ResCard></Link>
 
         })}
 
