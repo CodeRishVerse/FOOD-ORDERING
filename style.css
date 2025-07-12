@@ -1,4 +1,4 @@
-* {
+ /* {
   margin: 0;
   padding: 0;
 }
@@ -9,7 +9,6 @@
   justify-content: space-between;
   padding: 12px 24px;
   background-color: #fc8019;
-  /* Swiggy orange */
   color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -74,7 +73,7 @@
   justify-content: center;
   max-width: 640px;
   margin: 24px auto;
-  /* center horizontally with some margin */
+
   border-radius: 6px;
   overflow: hidden;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
@@ -94,7 +93,6 @@
 
 .search-button {
   background-color: #fc8019;
-  /* Swiggy orange */
   border: none;
   color: white;
   padding: 0 20px;
@@ -151,7 +149,7 @@
   justify-content: space-between;
   font-size: 14px;
   color: #ff7e20;
-  /* Swiggy orange-ish */
+ 
   font-weight: 600;
 }
 
@@ -171,7 +169,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  /* ⬅️ cards start centred, not hard-left */
   gap: 1rem;
   padding: 0 12px;
 }
@@ -198,35 +195,29 @@
 .filter-actions {
   display: flex;
   justify-content: center;
-  /* ⬅️ centre the row */
   align-items: center;
   gap: 0.75rem;
-  /* consistent breathing room */
   margin: 16px auto;
   max-width: 200px;
 }
 
-/* ──────────────────────── reset button */
+
 .reset-btn {
   padding: 0.5rem 1rem;
   font: inherit;
-  /* adopt parent font */
   border: 1px solid #d0d0d0;
-  /* light grey outline */
   border-radius: 4px;
   background-color: #fff;
-  /* flat white */
   cursor: pointer;
   transition: background-color 0.15s ease;
 }
 
 .reset-btn:hover {
   background-color: #f5f5f5;
-  /* soft hover */
+ 
 }
 
 
-/* container mimics your card grid */
 .shimmer {
   display: flex;
   flex-wrap: wrap;
@@ -234,12 +225,10 @@
   gap: 1rem;
 }
 
-/* single placeholder card */
+
 .shimmer-box {
   width: 280px;
-  /* same width as a real card */
   height: 245px;
-  /* tweak to match your image+info block */
   border-radius: 10px;
   background: linear-gradient(90deg,
       #f0f0f0 25%,
@@ -249,7 +238,7 @@
   animation: shimmer 1.2s infinite;
 }
 
-/* animation */
+
 @keyframes shimmer {
   0% {
     background-position: 100% 0;
@@ -260,22 +249,20 @@
   }
 }
 
-/* === generic reset for this block (optional) === */
+
 .error-page * {
   margin: 0;
   box-sizing: border-box;
 }
 
-/* === page wrapper === */
+
 .error-page {
   min-height: 100dvh;
-  /* full viewport height */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 2rem;
-  /* soft gradient backdrop */
   background: radial-gradient(at top left,
       #ffecd2 0%,
       #fcb69f 100%);
@@ -285,7 +272,6 @@
 
 }
 
-/* dark-mode support */
 @media (prefers-color-scheme: dark) {
   .error-page {
     background: radial-gradient(at top left,
@@ -295,7 +281,7 @@
   }
 }
 
-/* === individual elements === */
+
 .error-title {
   font-size: clamp(1.8rem, 6vw, 3rem);
   font-weight: 700;
@@ -307,7 +293,6 @@
   font-size: clamp(1.2rem, 4vw, 2rem);
   font-weight: 600;
   color: #ff7e20;
-  /* Swiggy-ish orange */
   margin-bottom: 0.75rem;
 }
 
@@ -425,7 +410,7 @@
 }
 
 
-/* ---------- wrapper & divider ---------- */
+
 .menu-wrapper {
   max-width: 760px;
   margin: 0 auto;
@@ -437,7 +422,7 @@
   margin: 1rem 0;
 }
 
-/* ---------- pills ---------- */
+
 .dish-filters {
   display: flex;
   flex-wrap: wrap;
@@ -461,7 +446,7 @@
   background: #f5f5f5;
 }
 
-/* pill icons */
+
 .dot {
   width: .65rem;
   height: .65rem;
@@ -484,7 +469,6 @@
   line-height: 1;
 }
 
-/* ---------- search ---------- */
 .dish-search {
   position: relative;
 }
@@ -504,7 +488,7 @@
   pointer-events: none;
 }
 
-/* ----- wrapper ----- */
+
 .dish-card {
   display: flex;
   justify-content: space-between;
@@ -514,12 +498,12 @@
   font-family: "Inter", sans-serif;
 }
 
-/* ----- left column ----- */
+
 .dish-info {
   flex: 1;
 }
 
-/* tags */
+
 .dish-tags {
   display: flex;
   align-items: center;
@@ -549,7 +533,7 @@
   font-weight: 600;
 }
 
-/* name & size */
+
 .dish-name {
   margin: 0;
   font-size: 1.35rem;
@@ -562,7 +546,7 @@
   color: #555;
 }
 
-/* pricing */
+
 .dish-price {
   display: flex;
   align-items: center;
@@ -584,14 +568,14 @@
   font-size: 1rem;
 }
 
-/* rating */
+
 .dish-rating {
   font-size: .9rem;
   color: #008005;
   margin-bottom: .8rem;
 }
 
-/* description */
+
 .dish-desc {
   font-size: 1rem;
   line-height: 1.55;
@@ -604,7 +588,7 @@
   color: #4a4a4a;
 }
 
-/* ----- right column ----- */
+
 .dish-cta {
   display: flex;
   flex-direction: column;
@@ -640,7 +624,7 @@
   color: #777;
 }
 
-/* ----- responsive tweak ----- */
+
 @media (max-width: 600px) {
   .dish-card {
     flex-direction: column;
@@ -662,7 +646,6 @@
   margin-top: 2rem;
 }
 
-/* ----- wrapper ----- */
 .dish-card {
   display: flex;
   justify-content: space-between;
@@ -672,12 +655,11 @@
   font-family: "Inter", sans-serif;
 }
 
-/* ----- left column ----- */
+
 .dish-info {
   flex: 1;
 }
 
-/* tags */
 .dish-tags {
   display: flex;
   align-items: center;
@@ -707,7 +689,7 @@
   font-weight: 600;
 }
 
-/* name & size */
+
 .dish-name {
   margin: 0;
   font-size: 1.35rem;
@@ -720,7 +702,7 @@
   color: #555;
 }
 
-/* pricing */
+
 .dish-price {
   display: flex;
   align-items: center;
@@ -742,14 +724,14 @@
   font-size: 1rem;
 }
 
-/* rating */
+
 .dish-rating {
   font-size: .9rem;
   color: #008005;
   margin-bottom: .8rem;
 }
 
-/* description */
+
 .dish-desc {
   font-size: 1rem;
   line-height: 1.55;
@@ -762,7 +744,7 @@
   color: #4a4a4a;
 }
 
-/* ----- right column ----- */
+
 .dish-cta {
   display: flex;
   flex-direction: column;
@@ -798,7 +780,7 @@
   color: #777;
 }
 
-/* ----- responsive tweak ----- */
+
 @media (max-width: 600px) {
   .dish-card {
     flex-direction: column;
@@ -821,7 +803,7 @@
   color: #2d2d2d;
 }
 
-/* Hero Section */
+
 .hero-section {
 
   display: flex;
@@ -891,7 +873,7 @@
   text-decoration: none;
 }
 
-/* Steps Section */
+
 .steps-section {
   display: flex;
   justify-content: space-between;
@@ -927,7 +909,7 @@
   line-height: 1.5;
 }
 
-/* Docs Box */
+
 .docs-box {
   width: 48%;
   background: #f8f4ff;
@@ -1046,7 +1028,7 @@ h1 {
   height: 16px;
   border-radius: 50%;
   border: 2px solid black;
-  /* border only, no fill */
+
   display: inline-block;
   background-color: black;
 }
@@ -1057,4 +1039,7 @@ h1 {
 
 .offline {
   background-color: red;
-}
+}  */
+
+
+@import "tailwindcss";
